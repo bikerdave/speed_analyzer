@@ -4,7 +4,7 @@ namespace A3020\SpeedAnalyzer\Event;
 
 use A3020\SpeedAnalyzer\Listener\Track;
 use Concrete\Core\Support\Facade\Application;
-use Symfony\Component\EventDispatcher\Event;
+use Symfony\Component\EventDispatcher\GenericEvent as Event;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
@@ -13,7 +13,7 @@ class EventDispatcher implements EventDispatcherInterface
     private $listeners = [];
     private $sorted = [];
 
-    public function dispatch($eventName, Event $event = null)
+    public function dispatch($event, $eventName = null): object
     {
         $app = Application::getFacadeApplication();
         $app->make(Track::class)->handle($eventName, $event);

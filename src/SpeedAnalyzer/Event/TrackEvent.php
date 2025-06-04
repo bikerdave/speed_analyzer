@@ -2,7 +2,7 @@
 
 namespace A3020\SpeedAnalyzer\Event;
 
-use Symfony\Component\EventDispatcher\Event;
+use Symfony\Component\EventDispatcher\GenericEvent as Event;
 
 final class TrackEvent extends Event implements TrackEventInterface
 {
